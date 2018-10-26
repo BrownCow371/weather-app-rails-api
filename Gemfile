@@ -7,6 +7,7 @@ gen 'dotenv-rails'
 
 # possibly needed gems
 gem 'faraday'
+gem 'foreman'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
