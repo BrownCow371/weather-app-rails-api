@@ -19,12 +19,13 @@ class SearchesController < ApplicationController
         # binding.pry
         if existing_weather && ((existing_weather.updated_at + (60 * 15)) > Time.now)
             render :json => existing_weather
+        # temporarily fetching sample data
         else
-            # @resp =Faraday.get 'https://samples.openweathermap.org/data/2.5/weather?zip=94040,us&appid=b6907d289e10d714a6e88b30761fae22' do |req|
-            @resp = Faraday.get 'http://api.openweathermap.org/data/2.5/weather' do |req|
-                req.params['APPID'] = ENV['APPID']
-                req.params['zip'] = params[:zip]
-                req.params['units'] = 'imperial'
+            @resp =Faraday.get 'https://samples.openweathermap.org/data/2.5/weather?zip=94040,us&appid=b6907d289e10d714a6e88b30761fae22' do |req|
+            # @resp = Faraday.get 'http://api.openweathermap.org/data/2.5/weather' do |req|
+            #     req.params['APPID'] = ENV['APPID']
+            #     req.params['zip'] = params[:zip]
+            #     req.params['units'] = 'imperial'
             end
         
             body = JSON.parse(@resp.body)
