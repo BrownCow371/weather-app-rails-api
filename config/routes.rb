@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   # post '/search', to: 'searches#openweathermap'
 
   scope '/api' do
-    get :weather, to: 'searches#current_weather'
-    get :forecast, to: 'searches#forecast_weather'
+    get '/weather', to: 'searches#current_weather'
+    get '/forecast', to: 'searches#forecast_weather'
+    get '/weather/:zip', to: 'searches#current_weather'
+    get '/forecast/:zip', to: 'searches#forecast_weather'
   end
 end
