@@ -6,6 +6,6 @@ Rails.application.routes.draw do
 
   scope '/api' do
     get :weather, to: 'searches#current_weather'
-    # get :forecast, to 'searches#forecast_weather'
+    get :forecast, to: 'searches#forecast_weather'
   end
 end
