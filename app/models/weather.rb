@@ -1,5 +1,3 @@
-class Weather < ActiveRecord::Base
-
-    
+class Weather < ApplicationRecord
 
 end
