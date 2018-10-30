@@ -14,7 +14,7 @@ class SearchesController < ApplicationController
     end
 
     def current_weather
-        # find and use existing weather if it is more than 15 minutes old. else fetch new data
+        # find and use existing weather if it is less than 15 minutes old. else fetch new data
     #    
         existing_weather = Weather.find_by(zip: params[:zip]) 
         # binding.pry
