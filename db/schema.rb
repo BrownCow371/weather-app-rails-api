@@ -10,14 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_29_171445) do
+ActiveRecord::Schema.define(version: 2018_10_30_145405) do
+
+  create_table "activities", force: :cascade do |t|
+    t.string "desc"
+    t.integer "max_temp"
+    t.integer "min_temp"
+    t.integer "max_wind_speed"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "activity_conditions", force: :cascade do |t|
+    t.integer "condition_id"
+    t.integer "activity_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "conditions", force: :cascade do |t|
+    t.integer "code"
+    t.string "desc"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "name"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "weathers", force: :cascade do |t|
     t.string "zip"
     t.string "date"
     t.string "main"
-    t.string "description"
+    t.string "desc"
     t.string "icon"
+    t.integer "code"
     t.float "temp"
     t.float "humidity"
     t.float "wind_speed"
