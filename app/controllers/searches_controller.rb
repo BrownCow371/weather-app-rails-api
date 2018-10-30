@@ -1,5 +1,6 @@
 class SearchesController < ApplicationController
-    
+    # before_action :authenticate_user
+
   
     def forecast_weather
         @resp =Faraday.get 'https://samples.openweathermap.org/data/2.5/forecast?zip=94040&appid=b6907d289e10d714a6e88b30761fae22' do |req|
@@ -33,12 +34,13 @@ class SearchesController < ApplicationController
             new_weather_hash = {
                 zip: params[:zip], 
                 date: body["dt"], 
-                description: body["weather"][0]["description"],
+                desc: body["weather"][0]["description"],
                 icon: body["weather"][0]["icon"],
                 main: body["weather"][0]["main"], 
+                code: body["weather"][0]["id"],
                 temp: body["main"]["temp"],
                 humidity: body["main"]["humidity"],
-                wind_speed: body["wind"]["speed"]
+                wind_speed: body["wind"]["speed"]                
             }
             
             current_weather = Weather.find_or_create_by(zip: params[:zip]) 
@@ -47,7 +49,7 @@ class SearchesController < ApplicationController
             
             # do |w|
             #     w.date = body["dt"]
-            #     w.description =  body["weather"][0]["description"]
+            #     w.desc =  body["weather"][0]["description"]
             #     w.icon = body["weather"][0]["icon"]
             #     w.main = body["weather"][0]["main"]
             #     w.temp = body["main"]["temp"]
