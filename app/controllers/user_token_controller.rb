@@ -1,2 +1,3 @@
-class UserTokenController < Knock::AuthTokenController
-end
+# class UserTokenController < Knock::AuthTokenController
+    # Future user authentication functionality. 
+# end
