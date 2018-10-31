@@ -11,6 +11,6 @@ Rails.application.routes.draw do
     get '/weather/:zip', to: 'searches#current_weather'
   # future forecase functionality
     # get '/forecast/:zip', to: 'searches#forecast_weather'
-    resources :activities
+    resources :activities, only: [:index, :show, :update, :create, :destroy]
   end
 end
