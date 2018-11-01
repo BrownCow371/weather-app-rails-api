@@ -4,7 +4,6 @@ class ActivitiesController < ApplicationController
     def index
         @activities = Activity.all
         render :json => @activities
-        # render json: @activities.to_json(include: :conditions)
     end
 
     def show
@@ -16,11 +15,18 @@ class ActivitiesController < ApplicationController
         if @activity.save
             render :json => @activity
         else
-            # render...what?
+            # render some sort of error
         end
     end
 
     def update
+        
+        if @activity.update(activity_params)
+            render :json => @activity
+        else
+            # render some sort of error
+        end
+
     end
 
     def destroy
@@ -33,7 +39,6 @@ private
     end
 
     def activity_params
-        # need to add conditions. get this working first.
-        params.require(:activity).permit(:desc, :max_temp, :min_temp, :max_wind_speed)
+        params.require(:activity).permit(:desc, :max_temp, :min_temp, :max_wind_speed, condition_ids: [])
     end
 end
