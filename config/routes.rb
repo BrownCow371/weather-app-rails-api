@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     # get '/forecast/:zip', to: 'searches#forecast_weather'
 
     get '/weather/:zip', to: 'searches#current_weather'
+    get '/weather/:zip/suggestion', to: 'searches#activity_suggestion'
     resources :activities, only: [:index, :show, :update, :create, :destroy]
     resources :conditions, only: [:index]
   end
