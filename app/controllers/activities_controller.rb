@@ -30,6 +30,8 @@ class ActivitiesController < ApplicationController
     end
 
     def destroy
+        # @activity.destroy
+        render :json => Activity.destroy(params[:id])
     end
 
 private
