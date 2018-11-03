@@ -24,8 +24,12 @@ class SearchesController < ApplicationController
             render :json => existing_weather
         
         else
-            # temporarily fetching sample data
+        # to fetch sample data uncomment these lines and comment out the ones for fetching live data below.
             # @resp =Faraday.get 'https://samples.openweathermap.org/data/2.5/weather?zip=94040,us&appid=b6907d289e10d714a6e88b30761fae22' do |req|
+            # end
+        
+        # to fetch live API data using your APP ID key  - 
+        # be sure to put your APPID=YOURKEY in a .env file at the root of this repository.)
             @resp = Faraday.get 'http://api.openweathermap.org/data/2.5/weather' do |req|
                 req.params['APPID'] = ENV['APPID']
                 req.params['zip'] = params[:zip]
