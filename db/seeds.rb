@@ -6,12 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# Save for future user functionality
-# User.create(name: "Fred", email: "fred@rails.com", password: "password")
-# User.create(name: "George", email: "george@rails.com", password: "password")
-# User.create(name: "Linda", email: "linda@rails.com", password: "password")
-# User.create(name: "Clara", email: "clara@rails.com", password: "password")
-# User.create(name: "Bob", email: "bob@rails.com", password: "password")
+User.create(name: "Fred", email: "fred@rails.com", password: "password")
+User.create(name: "George", email: "george@rails.com", password: "password")
+User.create(name: "Linda", email: "linda@rails.com", password: "password")
+User.create(name: "Clara", email: "clara@rails.com", password: "password")
+User.create(name: "Bob", email: "bob@rails.com", password: "password")
 
 Condition.create(code: 800 , desc: "Clear")
 Condition.create(code: 900 , desc: "Clouds")
