@@ -17,7 +17,6 @@ class Activity < ApplicationRecord
                 condition.desc == "Any" || condition.desc == weather.main
             end)
         end
-
         possible_activities.sample
     end
 
