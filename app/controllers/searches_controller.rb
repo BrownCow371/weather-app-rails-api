@@ -16,11 +16,11 @@ class SearchesController < ApplicationController
     # end
 
     def current_weather
-        # find and use existing weather if it is less than 15 minutes old. else fetch new data
+        # find and use existing weather if it is less than 30 minutes old. else fetch new data
      
         if validate_zip 
             
-            if @weather && ((@weather.updated_at + (60 * 15)) > Time.now)
+            if @weather && ((@weather.updated_at + (60 * 30)) > Time.now)
 
                 render(
                     status: 200,
