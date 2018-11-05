@@ -1,5 +1,6 @@
 class ActivitiesController < ApplicationController
     before_action :set_activity, only: [:show, :update, :destroy]
+    before_action: authenticate_user, only: [:update, :create, :destroy]
 
     def index
         @activities = Activity.all

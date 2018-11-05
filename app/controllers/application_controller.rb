@@ -5,7 +5,7 @@ class ApplicationController < ActionController::API
     # protect_from_forgery with: :exception
     # protect_from_forgery with: :null_session
     
-# save for future user authentication
-    # include Knock::Authenticable
+#  user authentication
+    include Knock::Authenticable
 
 end
