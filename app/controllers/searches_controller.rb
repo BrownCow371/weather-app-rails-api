@@ -46,7 +46,7 @@ class SearchesController < ApplicationController
         else
             render( 
                 status: 400, 
-                json: {error: 'No activity found for provided zipcode.'}
+                json: {error: 'All activities excluded per weather conditions.'}
             )
         end
     end
