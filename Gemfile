@@ -5,9 +5,13 @@ ruby '2.3.6'
 
 
 
-# possibly needed gems
+# Send fetch requests to outside API
 gem 'faraday'
+
+#Set up API and Client to start together
 gem 'foreman', '~> 0.82.0'
+
+#To store API keys
 gem 'dotenv-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -20,6 +24,7 @@ gem 'puma', '~> 3.11'
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
+
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem 'knock'
