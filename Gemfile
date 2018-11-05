@@ -8,7 +8,7 @@ ruby '2.3.6'
 # Send fetch requests to outside API
 gem 'faraday'
 
-#Set up API and Client to start together
+# Start two servers at once in Procfile
 gem 'foreman', '~> 0.82.0'
 
 #To store API keys
@@ -27,6 +27,8 @@ gem 'jbuilder', '~> 2.5'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+
+# JWT authentication
 gem 'knock'
 
 # add serializer
@@ -41,7 +43,7 @@ gem 'active_model_serializers'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-gem 'rack-cors'
+# gem 'rack-cors'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
