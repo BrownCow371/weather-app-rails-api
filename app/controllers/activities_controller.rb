@@ -3,35 +3,79 @@ class ActivitiesController < ApplicationController
 
     def index
         @activities = Activity.all
-        render :json => @activities
+
+        if @activities
+            render(
+                status: 200, 
+                json: @activities
+            ) 
+        else
+            render( 
+                status: 400, 
+                json: {error: 'No activities found.'}
+            )
+        end
     end
 
     def show
-        render :json => @activity
+        if @activity
+            render(
+                status: 200, 
+                json: @activity
+            ) 
+        else 
+            render( 
+                status: 400, 
+                json: {error: 'Activity not found.'}
+            )
+        end
     end
 
     def create
         @activity=Activity.new(activity_params)
+
         if @activity.save
-            render :json => @activity
+            render(
+                status: 200, 
+                json: @activity
+            ) 
         else
-            # render some sort of error
+            render( 
+                status: 400, 
+                json: {error: 'Activity not able to be created.'}
+            )
         end
     end
 
     def update
         
         if @activity.update(activity_params)
-            render :json => @activity
+            render(
+                status: 200, 
+                json: @activity
+            ) 
         else
-            # render some sort of error
+            render( 
+                status: 400, 
+                json: {error: 'Activity not able to be updated.'}
+            )
         end
 
     end
 
     def destroy
-        # @activity.destroy
-        render :json => Activity.destroy(params[:id])
+        if @activity
+             render(
+                 status: 200,
+                 json: Activity.destroy(params[:id])
+             )
+        else 
+            render( 
+                status: 400, 
+                json: {error: 'Activity not able to be deleted.'}
+            )
+        end
+
     end
 
 private
