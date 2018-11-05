@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
  
   scope '/api' do
-  # for future user authentication
-    # post 'user_token' => 'user_token#create'
+  #  user authentication
+    post 'user_token' => 'user_token#create'
     
   # future forecase functionality
     # get '/forecast/:zip', to: 'searches#forecast_weather'
