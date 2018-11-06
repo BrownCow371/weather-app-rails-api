@@ -85,6 +85,6 @@ private
     end
 
     def activity_params
-        params.require(:activity).permit(:desc, :max_temp, :min_temp, :max_wind_speed, condition_ids: [])
+        params.require(:activity).permit(:desc, :max_temp, :min_temp, :max_wind_speed, :likes, condition_ids: [])
     end
 end
