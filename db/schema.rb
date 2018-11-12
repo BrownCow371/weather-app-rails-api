@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_05_143508) do
+ActiveRecord::Schema.define(version: 2018_11_06_202418) do
 
   create_table "activities", force: :cascade do |t|
     t.string "desc"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2018_11_05_143508) do
     t.integer "max_wind_speed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "likes", default: 0
   end
 
   create_table "activity_conditions", force: :cascade do |t|
