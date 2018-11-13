@@ -1,6 +1,6 @@
 class ActivitiesController < ApplicationController
-    before_action :set_activity, only: [:show, :update, :destroy]
-    # before_action: authenticate_user, only: [:update, :create, :destroy]
+    before_action :set_activity, only: [:update, :destroy]
+    before_action :authenticate, only: [:update, :create, :destroy]
 
     def index
         @activities = Activity.all
@@ -14,20 +14,6 @@ class ActivitiesController < ApplicationController
             render( 
                 status: 400, 
                 json: {error: 'No activities found.'}
-            )
-        end
-    end
-
-    def show
-        if @activity
-            render(
-                status: 200, 
-                json: @activity
-            ) 
-        else 
-            render( 
-                status: 400, 
-                json: {error: 'Activity not found.'}
             )
         end
     end
