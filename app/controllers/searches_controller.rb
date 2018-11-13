@@ -1,6 +1,6 @@
 class SearchesController < ApplicationController
 # for future user authentication
-    # before_action :authenticate_user
+    # before_action :authenticate
     before_action :set_weather, only: [:current_weather]
 
 # save working on this functionality for another day:
