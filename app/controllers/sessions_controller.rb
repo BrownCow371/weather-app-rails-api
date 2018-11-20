@@ -7,7 +7,10 @@ class SessionsController < ApplicationController
             @jwt = Auth.issue({user: @user.id})
             render(
                 status: 200, 
-                json: {jwt: @jwt}
+                json: {
+                    jwt: @jwt,
+                    user: @user.name
+                }
             ) 
         else
             render( 
