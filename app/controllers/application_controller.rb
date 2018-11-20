@@ -4,7 +4,7 @@ class ApplicationController < ActionController::API
     # protect_from_forgery with: :exception
     # protect_from_forgery with: :null_session
     def logged_in?
-        !!current_user
+        !!@current_user
     end
 
     def authenticate
