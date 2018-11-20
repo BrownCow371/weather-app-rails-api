@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     before_action :set_user, only: [:show, :update, :destroy]
-    before_action :authenticate, only: [:show, :update, :destroy]
+    before_action :authenticate, only: [:update, :destroy]
 
     def create
         @user=User.new(user_params)
@@ -9,10 +9,11 @@ class UsersController < ApplicationController
             @jwt = Auth.issue({user: @user.id})
             render(
                 status: 200, 
-                json: {jwt: @jwt, user: @user}
+                json: {
+                    jwt: @jwt, 
+                    user: @user.name}
             ) 
         else
-
             render( 
                 status: 400, 
                 json: user_errors
