@@ -73,11 +73,11 @@ class UsersController < ApplicationController
     end
 
     def user_errors
-        json_error = {"errors": []}
+        json_error = {"error": []}
 
         if @user.errors.any?
             @user.errors.full_messages.each do |msg|
-                json_error[:errors] << msg
+                json_error[:error] << msg
             end
         end
         json_error    
