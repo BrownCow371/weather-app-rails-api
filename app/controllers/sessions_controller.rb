@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
     def create
         @user = User.find_by(email: auth_params[:email])
 
-        if @user && user.authenticate(auth_params[:password])
+        if @user && @user.authenticate(auth_params[:password])
             @jwt = Auth.issue({user: @user.id})
             render(
                 status: 200, 
@@ -14,6 +14,7 @@ class SessionsController < ApplicationController
                 status: 400, 
                 json: {error: 'Incorrect email or password.'}
             )
+        end
     end
 
     private
